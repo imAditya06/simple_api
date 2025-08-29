@@ -1,6 +1,15 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+app = FastAPI(
+    title="Simple API",
+    description="A demo FastAPI project deployed on Render",
+    version="1.0.0"
+)
+
+# Root endpoint
+@app.get("/")
+def root():
+    return {"message": "Welcome to my API!"}
 
 # Health check
 @app.get("/health")
